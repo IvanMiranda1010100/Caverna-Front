@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 
 function ComicListt({ comics }) {
   return (
-    <div className='flex flex-1 items-center gap-x-4'>
+    <div className='grid grid-cols-4 items-center gap-x-4 gap-y-4'>
       {comics.map(comic => (
         <Link key={comic._id} to={`/comic/${comic._id}`}>
           <ComicCard key={comic._id} comic={comic} />

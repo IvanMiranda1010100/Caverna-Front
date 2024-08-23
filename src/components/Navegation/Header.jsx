@@ -41,21 +41,21 @@ const HeaderComponent = () => {
     <span className="absolute left-0 bottom-0 block w-0 h-0.5 bg-gray-400 transition-all duration-300 group-hover:w-full"></span>
   </Link>
   <Link
-    to="/image"
+    to="/mangas"
     className="relative text-white font-medium group"
   >
     Mangas
     <span className="absolute left-0 bottom-0 block w-0 h-0.5 bg-gray-400 transition-all duration-300 group-hover:w-full"></span>
   </Link>
   <Link
-    to="/indies"
+    to="/favoritos"
     className="relative text-white font-medium group"
   >
     Favoritos
     <span className="absolute left-0 bottom-0 block w-0 h-0.5 bg-gray-400 transition-all duration-300 group-hover:w-full"></span>
   </Link>
   <Link
-    to="/resenas"
+    to="/contact"
     className="relative text-white font-medium group"
   >
     Contacto
@@ -147,14 +147,14 @@ const HeaderComponent = () => {
             <Link to="/marvel" className="text-white font-medium block">
               Marvel
             </Link>
-            <Link to="/image" className="text-white font-medium block">
-              Image
+            <Link to="/mangas" className="text-white font-medium block">
+              Mangas
             </Link>
-            <Link to="/indies" className="text-white font-medium block">
-              Indies
+            <Link to="/favoritos" className="text-white font-medium block">
+              Favoritos
             </Link>
-            <Link to="/resenas" className="text-white font-medium block">
-              Reseñas
+            <Link to="/contact" className="text-white font-medium block">
+              Contacto
             </Link>
           </nav>
         </div>
