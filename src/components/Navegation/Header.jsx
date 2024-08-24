@@ -55,10 +55,10 @@ const HeaderComponent = () => {
     <span className="absolute left-0 bottom-0 block w-0 h-0.5 bg-gray-400 transition-all duration-300 group-hover:w-full"></span>
   </Link>
   <Link
-    to="/contact"
+    to="/pedidos"
     className="relative text-white font-medium group"
   >
-    Contacto
+    Pedidos
     <span className="absolute left-0 bottom-0 block w-0 h-0.5 bg-gray-400 transition-all duration-300 group-hover:w-full"></span>
   </Link>
 </nav>
@@ -153,8 +153,8 @@ const HeaderComponent = () => {
             <Link to="/favoritos" className="text-white font-medium block">
               Favoritos
             </Link>
-            <Link to="/contact" className="text-white font-medium block">
-              Contacto
+            <Link to="/pedidos" className="text-white font-medium block">
+              Pedidos
             </Link>
           </nav>
         </div>

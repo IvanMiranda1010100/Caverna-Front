@@ -21,7 +21,7 @@ const router = createBrowserRouter([
       { path: "/", element: <PageInitial /> },
       { path: "/comic/:id", element: <PageByIdComic /> },
       { path: "/comic/:id/:title", element: <PageComic /> },
-      { path: "/contact", element: <PageContactMail /> },
+      { path: "/pedidos", element: <PageContactMail /> },
       {
         element: <DashboardLayout />,
         path: "dashboard",
