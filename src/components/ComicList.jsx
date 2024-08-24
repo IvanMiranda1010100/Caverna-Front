@@ -5,12 +5,14 @@ import { Link } from 'react-router-dom';
 
 function ComicListt({ comics }) {
   return (
-    <div className='grid grid-cols-4 items-center gap-x-4 gap-y-4'>
-      {comics.map(comic => (
-        <Link key={comic._id} to={`/comic/${comic._id}`}>
-          <ComicCard key={comic._id} comic={comic} />
-        </Link>
-      ))}
+    <div className='flex justify-center'>
+      <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-x-4 gap-y-4'>
+        {comics.map(comic => (
+          <Link key={comic._id} to={`/comic/${comic._id}`}>
+            <ComicCard comic={comic} />
+          </Link>
+        ))}
+      </div>
     </div>
   );
 }

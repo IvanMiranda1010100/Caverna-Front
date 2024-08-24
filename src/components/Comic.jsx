@@ -5,7 +5,7 @@ function ComicCard({ comic }) {
     <div className="relative flex flex-col bg-white dark:bg-gray-800 shadow-lg rounded-lg overflow-hidden max-w-xs md:max-w-sm lg:max-w-md lg:w-[300px]">
       <div className="absolute inset-0 bg-gradient-to-r from-purple-500 via-pink-500 to-red-500 p-1 rounded-lg"></div>
       <div className="relative flex flex-col bg-white dark:bg-gray-800 rounded-lg overflow-hidden h-full">
-        <div className="h-[200px] md:h-[250px] lg:h-[300px]">
+        <div className="h-[400px] md:h-[250px] lg:h-[300px]">
           <img
             className="hover:scale-105 transition duration-500 ease-in-out hover:brightness-50 object-cover h-full w-full rounded-t-lg"
             src={comic.imageUrl}

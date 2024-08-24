@@ -1,68 +1,113 @@
-import React, { useState } from "react";
-import { Link } from "react-router-dom"; // Si usas react-router
+import React, { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
+import { useAuth } from "@clerk/clerk-react";
+import { SignOutButton } from "@clerk/clerk-react";
 
 const HeaderComponent = () => {
   const [menuOpen, setMenuOpen] = useState(false);
+  const [categoriesOpen, setCategoriesOpen] = useState(false);
+  const [accountOpen, setAccountOpen] = useState(false);
+  const { isSignedIn } = useAuth();
+
+  // Cerrar el menú responsive al cambiar el tamaño de pantalla
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth >= 768) {
+        setMenuOpen(false);
+      }
+    };
+
+    window.addEventListener('resize', handleResize);
+
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
+  }, []);
 
   return (
     <header className="bg-gradient-to-r from-red-600 to-red-800 py-4 px-6">
-      <div className="container mx-auto flex items-center justify-between px-5 lg:px-36  xl:px-52">
+      <div className="container mx-auto flex items-center justify-between px-5 lg:px-36 xl:px-52">
         {/* Logo y Enlaces de Navegación */}
         <div className="flex items-center space-x-8">
-          <div className='flex flex-1 items-center gap-x-2'>
-          <img
-            src="/logo.png"
-            alt="Logo"
-            className="h-10 w-10"
-          />
-          <span className="text-white text-2xl font-bold">Caverna</span>
+          <div className="flex flex-1 items-center gap-x-2">
+            <img src="/logo.png" alt="Logo" className="h-10 w-10" />
+            <span className="text-white text-2xl font-bold">Caverna</span>
           </div>
 
-          <nav className="hidden md:flex space-x-8">
-  <Link
-    to="/"
-    className="relative text-white font-medium group"
-  >
-    Inicio
-    <span className="absolute left-0 bottom-0 block w-0 h-0.5 bg-gray-400 transition-all duration-300 group-hover:w-full"></span>
-  </Link>
-  <Link
-    to="/dc"
-    className="relative text-white font-medium group"
-  >
-    DC
-    <span className="absolute left-0 bottom-0 block w-0 h-0.5 bg-gray-400 transition-all duration-300 group-hover:w-full"></span>
-  </Link>
-  <Link
-    to="/marvel"
-    className="relative text-white font-medium group"
-  >
-    Marvel
-    <span className="absolute left-0 bottom-0 block w-0 h-0.5 bg-gray-400 transition-all duration-300 group-hover:w-full"></span>
-  </Link>
-  <Link
-    to="/mangas"
-    className="relative text-white font-medium group"
-  >
-    Mangas
-    <span className="absolute left-0 bottom-0 block w-0 h-0.5 bg-gray-400 transition-all duration-300 group-hover:w-full"></span>
-  </Link>
-  <Link
-    to="/favoritos"
-    className="relative text-white font-medium group"
-  >
-    Favoritos
-    <span className="absolute left-0 bottom-0 block w-0 h-0.5 bg-gray-400 transition-all duration-300 group-hover:w-full"></span>
-  </Link>
-  <Link
-    to="/pedidos"
-    className="relative text-white font-medium group"
-  >
-    Pedidos
-    <span className="absolute left-0 bottom-0 block w-0 h-0.5 bg-gray-400 transition-all duration-300 group-hover:w-full"></span>
-  </Link>
-</nav>
+          <nav className="hidden md:flex space-x-8 items-center">
+            <Link to="/" className="relative text-white font-medium group">
+              Inicio
+              <span className="absolute left-0 bottom-0 block w-0 h-0.5 bg-gray-400 transition-all duration-300 group-hover:w-full"></span>
+            </Link>
 
+            {/* Dropdown de Categorías */}
+            <div className="relative group">
+              <button
+                onClick={() => setCategoriesOpen(!categoriesOpen)}
+                className="text-white font-medium group-hover:text-gray-300 flex items-center"
+              >
+                Categorías
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="icon icon-tabler icons-tabler-outline icon-tabler-chevron-down">
+                  <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                  <path d="M6 9l6 6l6 -6" />
+                </svg>
+              </button>
+              {categoriesOpen && (
+                <div className="absolute mt-2 z-[400] w-[100px] bg-red-800 rounded-md shadow-lg">
+                  <Link to="/dc" className="block px-4 py-2 ">
+                    DC
+                  </Link>
+                  <Link to="/marvel" className="block px-4 py-2 ">
+                    Marvel
+                  </Link>
+                  <Link to="/mangas" className="block px-4 py-2 ">
+                    Mangas
+                  </Link>
+                </div>
+              )}
+            </div>
+
+            <Link to="/MyFavorites" className="relative text-white font-medium group">
+              Favoritos
+              <span className="absolute left-0 bottom-0 block w-0 h-0.5 bg-gray-400 transition-all duration-300 group-hover:w-full"></span>
+            </Link>
+            <Link to="/pedidos" className="relative text-white font-medium group">
+              Pedidos
+              <span className="absolute left-0 bottom-0 block w-0 h-0.5 bg-gray-400 transition-all duration-300 group-hover:w-full"></span>
+            </Link>
+
+            {/* Dropdown de Cuenta */}
+            <div className="relative group">
+              <button
+                onClick={() => setAccountOpen(!accountOpen)}
+                className="text-white font-medium group-hover:text-gray-300 flex items-center"
+              >
+                Cuenta
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="icon icon-tabler icons-tabler-outline icon-tabler-chevron-down">
+                  <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                  <path d="M6 9l6 6l6 -6" />
+                </svg>
+              </button>
+              {accountOpen && (
+                <div className="absolute mt-2 w-[130px] z-[400] bg-red-800 rounded-md shadow-lg">
+                  {isSignedIn ? (
+                    <SignOutButton className="block px-4 py-2 ">
+                      Cerrar sesión
+                    </SignOutButton>
+                  ) : (
+                    <>
+                      <Link to="/sign-in" className="block px-4 py-2 ">
+                        Iniciar sesión
+                      </Link>
+                      <Link to="/sign-up" className="block px-4 py-2 ">
+                        Crear cuenta
+                      </Link>
+                    </>
+                  )}
+                </div>
+              )}
+            </div>
+          </nav>
         </div>
 
         {/* Íconos de Búsqueda y Menú Hamburguesa */}
@@ -86,7 +131,7 @@ const HeaderComponent = () => {
           </svg>
 
           {/* Ícono de Menú Hamburguesa (solo visible en móviles) */}
-          <div className="md:hidden" onClick={() => setMenuOpen(!menuOpen)}>
+          <div className="md:hidden cursor-pointer" onClick={() => setMenuOpen(!menuOpen)}>
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="24"
@@ -112,7 +157,7 @@ const HeaderComponent = () => {
       <div
         className={`fixed inset-0 bg-red-800 transition-transform transform ${
           menuOpen ? "translate-x-0" : "translate-x-full"
-        }`}
+        } z-[1900]`}
       >
         <div className="p-4 space-y-4">
           <div className="flex justify-end">
@@ -141,21 +186,67 @@ const HeaderComponent = () => {
             <Link to="/" className="text-white font-medium block">
               Inicio
             </Link>
-            <Link to="/dc" className="text-white font-medium block">
-              DC
-            </Link>
-            <Link to="/marvel" className="text-white font-medium block">
-              Marvel
-            </Link>
-            <Link to="/mangas" className="text-white font-medium block">
-              Mangas
-            </Link>
-            <Link to="/favoritos" className="text-white font-medium block">
+            <div className="relative">
+              <button
+                onClick={() => setCategoriesOpen(!categoriesOpen)}
+                className="text-white font-medium w-full text-left flex items-center"
+              >
+                Categorías
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="icon icon-tabler icons-tabler-outline icon-tabler-chevron-down">
+                  <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                  <path d="M6 9l6 6l6 -6" />
+                </svg>
+              </button>
+              {categoriesOpen && (
+                <div className="mt-2 rounded-md shadow-lg">
+                  <Link to="/dc" className="block px-4 py-2 ">
+                    DC
+                  </Link>
+                  <Link to="/marvel" className="block px-4 py-2 ">
+                    Marvel
+                  </Link>
+                  <Link to="/mangas" className="block px-4 py-2 ">
+                    Mangas
+                  </Link>
+                </div>
+              )}
+            </div>
+            <Link to="/MyFavorites" className="text-white font-medium block">
               Favoritos
             </Link>
             <Link to="/pedidos" className="text-white font-medium block">
               Pedidos
             </Link>
+            <div className="relative">
+              <button
+                onClick={() => setAccountOpen(!accountOpen)}
+                className="text-white font-medium w-full text-left flex items-center"
+              >
+                Cuenta
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="icon icon-tabler icons-tabler-outline icon-tabler-chevron-down">
+                  <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                  <path d="M6 9l6 6l6 -6" />
+                </svg>
+              </button>
+              {accountOpen && (
+                <div className="mt-2 rounded-md shadow-lg">
+                  {isSignedIn ? (
+                    <SignOutButton className="block px-4 py-2 ">
+                      Cerrar sesión
+                    </SignOutButton>
+                  ) : (
+                    <>
+                      <Link to="/sign-in" className="block px-4 py-2 ">
+                        Iniciar sesión
+                      </Link>
+                      <Link to="/sign-up" className="block px-4 py-2 ">
+                        Crear cuenta
+                      </Link>
+                    </>
+                  )}
+                </div>
+              )}
+            </div>
           </nav>
         </div>
       </div>

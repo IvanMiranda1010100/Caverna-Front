@@ -10,8 +10,8 @@ declare module '*.jsx' {
   
   export const PageContactMail: FC<any>; // Agrega aquí las exportaciones con nombre si las necesitas
   export const PageByIdComic: FC<any>; // Agrega aquí las exportaciones con nombre si las necesitas
-  export const BuyInfoPage: FC<any>; // Agrega aquí las exportaciones con nombre si las necesitas
-  export const TotalProductsPage: FC<any>; // Agrega aquí las exportaciones con nombre si las necesitas
+  export const PageComic: FC<any>; // Agrega aquí las exportaciones con nombre si las necesitas
+  export const PageFavorites: FC<any>; // Agrega aquí las exportaciones con nombre si las necesitas
   export const DashboardBody: FC<any>; // Agrega aquí las exportaciones con nombre si las necesitas
   export const ProductWeb: FC<any>; // Agrega aquí las exportaciones con nombre si las necesitas
   export const SearchResultPage: FC<any>; // Agrega aquí las exportaciones con nombre si las necesitas
