@@ -18,15 +18,15 @@ function ComicCard({ comic }) {
           </h2>
           <div className="mt-3 flex-1 overflow-hidden">
             <p className="text-sm md:text-base text-gray-600 dark:text-gray-300 truncate">
-              <span className="font-semibold text-gray-700 dark:text-gray-200">Authors: </span>
+              <span className="font-semibold text-gray-700 dark:text-gray-200">Autores: </span>
               {comic.authors.join(', ')}
             </p>
             <p className="text-sm md:text-base text-gray-600 dark:text-gray-300 truncate">
-              <span className="font-semibold text-gray-700 dark:text-gray-200">Genres: </span>
+              <span className="font-semibold text-gray-700 dark:text-gray-200">Generos: </span>
               {comic.genres.join(', ')}
             </p>
             <p className="text-sm md:text-base text-gray-600 dark:text-gray-300 truncate">
-              <span className="font-semibold text-gray-700 dark:text-gray-200">Published: </span>
+              <span className="font-semibold text-gray-700 dark:text-gray-200">Publicado: </span>
               {comic.publicationYear}
             </p>
           </div>

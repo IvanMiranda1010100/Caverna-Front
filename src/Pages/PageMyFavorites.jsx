@@ -1,24 +1,37 @@
-import  HeaderComponent  from "@Components/Navegation/Header"
-import { FooterComponent } from "@Components/Footer"
-import useFetchComics from '@store/api';
-import ComicListt from '@Components/ComicList.jsx';
-// import Genres from './GenersSelect'
-import ThemeToggleButton from '@Components/Light-Dark/Theme'
+// src/components/PageFavorites.js
+import React from 'react';
+import { useFavorites } from '@store/miFavoritesComics';
+import HeaderComponent from '@Components/Navegation/Header';
+import ThemeToggleButton from '@Components/Light-Dark/Theme';
+import ComicListt from '@Components/ComicList';
+import { FooterComponent } from '@Components/Footer';
 
-export const PageFavorites = ()=>{
-  
-  const { comics, loading } = useFetchComics();
+export const PageFavorites = () => {
+  const { favorites } = useFavorites();
 
-  if (loading) {
-    return <div>Cargando...</div>;
+  if (!favorites.length) {
+    return (
+      <>
+      <HeaderComponent/>
+        <main className='h-[600px] lg:h-[400px] flex justify-center items-center'>
+          <h1 className='text-3xl'>No tienes comics en favoritos</h1>
+        </main>
+      <ThemeToggleButton/>
+      <FooterComponent/>
+      </>
+    )
   }
 
-  return(
+  return (
     <>
-    <HeaderComponent/>
-    <ThemeToggleButton/>
-    <ComicListt comics={comics} />
-    <FooterComponent/>
+      <HeaderComponent/>
+      <ThemeToggleButton/>
+      <main className='py-4 px-5'>
+        <h1 className='font-bold text-3xl mb-2 text-center'>Tus Favoritos</h1>
+        <hr className='mb-4'></hr>
+        <ComicListt comics={favorites} />
+      </main>
+      <FooterComponent/>
     </>
-  )
-}
+  );
+};

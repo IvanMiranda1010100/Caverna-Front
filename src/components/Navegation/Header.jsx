@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { useAuth } from "@clerk/clerk-react";
 import { SignOutButton } from "@clerk/clerk-react";
+import { SearchMob } from "./Search";
 
 const HeaderComponent = () => {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -54,13 +55,13 @@ const HeaderComponent = () => {
               </button>
               {categoriesOpen && (
                 <div className="absolute mt-2 z-[400] w-[100px] bg-red-800 rounded-md shadow-lg">
-                  <Link to="/dc" className="block px-4 py-2 ">
+                  <Link to="/DC Comics" className="block px-4 py-2 ">
                     DC
                   </Link>
-                  <Link to="/marvel" className="block px-4 py-2 ">
+                  <Link to="/Marvel Comics" className="block px-4 py-2 ">
                     Marvel
                   </Link>
-                  <Link to="/mangas" className="block px-4 py-2 ">
+                  <Link to="/Mangas" className="block px-4 py-2 ">
                     Mangas
                   </Link>
                 </div>
@@ -113,22 +114,7 @@ const HeaderComponent = () => {
         {/* Íconos de Búsqueda y Menú Hamburguesa */}
         <div className="flex items-center space-x-4">
           {/* Ícono de Búsqueda */}
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="24"
-            height="24"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            strokeWidth="2"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            className="text-white"
-          >
-            <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-            <path d="M10 10m-7 0a7 7 0 1 0 14 0a7 7 0 1 0 -14 0" />
-            <path d="M21 21l-6 -6" />
-          </svg>
+          <SearchMob/>
 
           {/* Ícono de Menú Hamburguesa (solo visible en móviles) */}
           <div className="md:hidden cursor-pointer" onClick={() => setMenuOpen(!menuOpen)}>
@@ -199,13 +185,13 @@ const HeaderComponent = () => {
               </button>
               {categoriesOpen && (
                 <div className="mt-2 rounded-md shadow-lg">
-                  <Link to="/dc" className="block px-4 py-2 ">
+                  <Link to="/DC Comics" className="block px-4 py-2 ">
                     DC
                   </Link>
-                  <Link to="/marvel" className="block px-4 py-2 ">
+                  <Link to="/Marvel Comics" className="block px-4 py-2 ">
                     Marvel
                   </Link>
-                  <Link to="/mangas" className="block px-4 py-2 ">
+                  <Link to="/Mangas" className="block px-4 py-2 ">
                     Mangas
                   </Link>
                 </div>

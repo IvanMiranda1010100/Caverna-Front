@@ -2,6 +2,8 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 import { RouterProvider, createBrowserRouter } from 'react-router-dom';
+import { FavoritesProvider } from '@store/miFavoritesComics.jsx';
+
 
 // Import the layouts
 import RootLayout from './Layouts/Layout.jsx';
@@ -16,6 +18,8 @@ import {PageByIdComic} from '@Pages/PageComicRiding.jsx'
 import {PageComic} from '@Pages/PageComic.jsx'
 import {PageContactMail} from '@Pages/PageContact.jsx'
 import {PageFavorites} from '@Pages/PageMyFavorites.jsx'
+import {PageCategories} from '@Pages/PageCategories.jsx'
+import {PageResults} from '@Pages/PageResultsSearch.jsx'
 
 const router = createBrowserRouter([
   {
@@ -26,6 +30,8 @@ const router = createBrowserRouter([
       { path: "/sign-up", element: <Signup /> },
       { path: "/comic/:id", element: <PageByIdComic /> },
       { path: "/comic/:id/:title", element: <PageComic /> },
+      { path: "/:categoria", element: <PageCategories /> },
+      { path: "/resultados/:resultados", element: <PageResults /> },
       { path: "/pedidos", element: <PageContactMail /> },
       {
         element: <DashboardLayout />,
@@ -47,6 +53,8 @@ if (!PUBLISHABLE_KEY) {
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
+    <FavoritesProvider>
     <RouterProvider router={router}/>
+    </FavoritesProvider>
   </React.StrictMode>
 );

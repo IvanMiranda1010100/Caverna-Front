@@ -21,265 +21,383 @@ export default function DashboardLayout() {
   if (!isLoaded || !userId)
     return (
       <>
-        <div className="container center">
-          <div className="rope center">
-            <div className="legs center">
-              <div className="boot-l"></div>
-              <div className="boot-r"></div>
-            </div>
-            <div className="costume center">
-              <div className="spider">
-                <div className="s1 center"></div>
-                <div className="s2 center"></div>
-                <div className="s3"></div>
-                <div className="s4"></div>
-              </div>
-              <div className="belt center"></div>
-              <div className="hand-r"></div>
-              <div className="hand-l"></div>
-              <div className="neck center"></div>
-              <div className="mask center">
-                <div className="eye-l"></div>
-                <div className="eye-r"></div>
-              </div>
-              <div className="cover center"></div>
-            </div>
-          </div>
-        </div>
+<div class="box-of-star1">
+    <div class="star star-position1"></div>
+    <div class="star star-position2"></div>
+    <div class="star star-position3"></div>
+    <div class="star star-position4"></div>
+    <div class="star star-position5"></div>
+    <div class="star star-position6"></div>
+    <div class="star star-position7"></div>
+  </div>
+  <div class="box-of-star2">
+    <div class="star star-position1"></div>
+    <div class="star star-position2"></div>
+    <div class="star star-position3"></div>
+    <div class="star star-position4"></div>
+    <div class="star star-position5"></div>
+    <div class="star star-position6"></div>
+    <div class="star star-position7"></div>
+  </div>
+  <div class="box-of-star3">
+    <div class="star star-position1"></div>
+    <div class="star star-position2"></div>
+    <div class="star star-position3"></div>
+    <div class="star star-position4"></div>
+    <div class="star star-position5"></div>
+    <div class="star star-position6"></div>
+    <div class="star star-position7"></div>
+  </div>
+  <div class="box-of-star4">
+    <div class="star star-position1"></div>
+    <div class="star star-position2"></div>
+    <div class="star star-position3"></div>
+    <div class="star star-position4"></div>
+    <div class="star star-position5"></div>
+    <div class="star star-position6"></div>
+    <div class="star star-position7"></div>
+  </div>
+  <div data-js="astro" class="astronaut">
+    <div class="head"></div>
+    <div class="arm arm-left"></div>
+    <div class="arm arm-right"></div>
+    <div class="body">
+      <div class="panel"></div>
+    </div>
+    <div class="leg leg-left"></div>
+    <div class="leg leg-right"></div>
+    <div class="schoolbag"></div>
+  </div>
 
         <style>{`
-          .center {
-            position: absolute;
-            transform: translateX(-50%);
-            left: 50%;
-          }
+          /* From Uiverse.io by JkHuger */ 
+@keyframes snow {
+  0% {
+    opacity: 0;
+    transform: translateY(0px);
+  }
 
-          .container {
-            height: 31.25em;
-            width: 21.87em;
-            margin-top: -325px;
-          }
+  20% {
+    opacity: 1;
+  }
 
-          .rope {
-            height: 13.62em;
-            width: 0.15em;
-            background-color: #ffffff;
-            animation: swing 2s infinite;
-          }
+  100% {
+    opacity: 1;
+    transform: translateY(650px);
+  }
+}
 
-          @keyframes swing {
-            50% {
-              transform: translateY(-4em);
-            }
-          }
+@keyframes astronaut {
+  0% {
+    transform: rotate(0deg);
+  }
 
-          .legs {
-            height: 1.12em;
-            width: 7.5em;
-            background-color: transparent;
-            box-shadow: 0 0 0 0.12em #140243, 0 0 0 1.06em #1b1676, 0 0 0 1.18em #140243;
-            top: 12.5em;
-            border-radius: 3.12em;
-          }
+  100% {
+    transform: rotate(360deg);
+  }
+}
 
-          .boot-l,
-          .boot-r {
-            height: 1.25em;
-            width: 2.5em;
-            background-color: #e32832;
-            position: absolute;
-            border: 0.12em solid #140243;
-            bottom: 1.12em;
-          }
+.box-of-star1,
+.box-of-star2,
+.box-of-star3,
+.box-of-star4 {
+  width: 100%;
+  position: absolute;
+  z-index: 10;
+  left: 0;
+  top: 0;
+  transform: translateY(0px);
+  height: 700px;
+}
 
-          .boot-l {
-            left: 1em;
-          }
+.box-of-star1 {
+  animation: snow 5s linear infinite;
+}
 
-          .boot-r {
-            transform: rotateY(180deg);
-            left: 3.81em;
-          }
+.box-of-star2 {
+  animation: snow 5s -1.64s linear infinite;
+}
 
-          .boot-l:before,
-          .boot-r:before {
-            content: "";
-            position: absolute;
-            width: 0;
-            height: 0;
-            border-bottom: 1.12em solid #140243;
-            border-left: 1.18em solid transparent;
-            bottom: 1.31em;
-            left: 1.46em;
-          }
+.box-of-star3 {
+  animation: snow 5s -2.30s linear infinite;
+}
 
-          .boot-l:after,
-          .boot-r:after {
-            content: "";
-            position: absolute;
-            width: 0;
-            height: 0;
-            border-bottom: 1.12em solid #e32832;
-            border-left: 1em solid transparent;
-            right: 0;
-            top: -0.93em;
-          }
+.box-of-star4 {
+  animation: snow 5s -3.30s linear infinite;
+}
 
-          .costume {
-            height: 6.25em;
-            width: 5.62em;
-            background: linear-gradient(
-              to right,
-              #1b1676 20%,
-              #e32832 20%,
-              #e32832 80%,
-              #1b1676 80%
-            );
-            border: 0.12em solid #140243;
-            top: 14.68em;
-          }
+.star {
+  width: 3px;
+  height: 3px;
+  border-radius: 50%;
+  background-color: #FFF;
+  position: absolute;
+  z-index: 10;
+  opacity: 0.7;
+}
 
-          .spider {
-            height: 1.87em;
-            width: 0.93em;
-            background-color: #140243;
-            border-radius: 45%;
-            position: absolute;
-            transform: translate(-50%, -50%);
-            top: calc(50% + 0.93em);
-            left: 50%;
-          }
+.star:before {
+  content: "";
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background-color: #FFF;
+  position: absolute;
+  z-index: 10;
+  top: 80px;
+  left: 70px;
+  opacity: .7;
+}
 
-          .s1,
-          .s3 {
-            height: 7.5em;
-            width: 2.5em;
-            border-radius: 0 0 1.37em 1.37em;
-            border-bottom: 0.12em solid #140243;
-            position: absolute;
-          }
+.star:after {
+  content: "";
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: #FFF;
+  position: absolute;
+  z-index: 10;
+  top: 8px;
+  left: 170px;
+  opacity: .9;
+}
 
-          .s2,
-          .s4 {
-            height: 7.5em;
-            width: 3.12em;
-            border-radius: 0 0 1.56em 1.56em;
-            border-bottom: 0.12em solid #140243;
-            position: absolute;
-          }
+.star-position1 {
+  top: 30px;
+  left: 20px;
+}
 
-          .s1,
-          .s2,
-          .s3,
-          .s4 {
-            left: 50%;
-          }
+.star-position2 {
+  top: 110px;
+  left: 250px;
+}
 
-          .s1 {
-            bottom: 1.43em;
-          }
+.star-position3 {
+  top: 60px;
+  left: 570px;
+}
 
-          .s2 {
-            bottom: 0.93em;
-          }
+.star-position4 {
+  top: 120px;
+  left: 900px;
+}
 
-          .s3,
-          .s4 {
-            transform: translateX(-50%) rotateX(180deg);
-          }
+.star-position5 {
+  top: 20px;
+  left: 1120px;
+}
 
-          .s3 {
-            top: 1.43em;
-          }
+.star-position6 {
+  top: 90px;
+  left: 1280px;
+}
 
-          .s4 {
-            top: 0.93em;
-          }
+.star-position7 {
+  top: 30px;
+  left: 1480px;
+}
 
-          .belt {
-            height: 0.43em;
-            width: 5.87em;
-            background-color: #e32832;
-            border: 0.12em solid #140243;
-            top: -0.12em;
-          }
+.astronaut {
+  width: 250px;
+  height: 300px;
+  position: absolute;
+  z-index: 11;
+  top: calc(50% - 150px);
+  left: calc(50% - 125px);
+  animation: astronaut 5s linear infinite;
+}
 
-          .hand-r,
-          .hand-l {
-            height: 8.12em;
-            background: linear-gradient(
-              #e32832 4.6em,
-              #140243 4.6em,
-              #140243 4.75em,
-              #1b1676 4.75em,
-              #1b1676 8.12em
-            );
-            width: 1.12em;
-            border: 0.12em solid #140243;
-            border-radius: 1.25em;
-            position: absolute;
-            transform-origin: bottom;
-            bottom: -0.12em;
-          }
+.schoolbag {
+  width: 100px;
+  height: 150px;
+  position: absolute;
+  z-index: 1;
+  top: calc(50% - 75px);
+  left: calc(50% - 50px);
+  background-color: #94b7ca;
+  border-radius: 50px 50px 0 0 / 30px 30px 0 0;
+}
 
-          .hand-r {
-            right: -0.75em;
-            transform: rotate(-22deg);
-          }
+.head {
+  width: 97px;
+  height: 80px;
+  position: absolute;
+  z-index: 3;
+  background: -webkit-linear-gradient(left, #e3e8eb 0%, #e3e8eb 50%, #fbfdfa 50%, #fbfdfa 100%);
+  border-radius: 50%;
+  top: 34px;
+  left: calc(50% - 47.5px);
+}
 
-          .hand-l {
-            left: -0.75em;
-            transform: rotate(22deg);
-          }
+.head:after {
+  content: "";
+  width: 60px;
+  height: 50px;
+  position: absolute;
+  top: calc(50% - 25px);
+  left: calc(50% - 30px);
+  background: -webkit-linear-gradient(top, #15aece 0%, #15aece 50%, #0391bf 50%, #0391bf 100%);
+  border-radius: 15px;
+}
 
-          .neck {
-            height: 0.37em;
-            width: 1.25em;
-            background-color: #e32832;
-            bottom: -0.62em;
-            border: 0.12em solid #140243;
-          }
+.head:before {
+  content: "";
+  width: 12px;
+  height: 25px;
+  position: absolute;
+  top: calc(50% - 12.5px);
+  left: -4px;
+  background-color: #618095;
+  border-radius: 5px;
+  box-shadow: 92px 0px 0px #618095;
+}
 
-          .mask {
-            height: 4.65em;
-            width: 4.06em;
-            background-color: #e32832;
-            border-radius: 50% 50% 50% 50% / 54% 54% 46% 46%;
-            border: 0.12em solid #140243;
-            top: 6.56em;
-          }
+.body {
+  width: 85px;
+  height: 100px;
+  position: absolute;
+  z-index: 2;
+  background-color: #fffbff;
+  border-radius: 40px / 20px;
+  top: 105px;
+  left: calc(50% - 41px);
+  background: -webkit-linear-gradient(left, #e3e8eb 0%, #e3e8eb 50%, #fbfdfa 50%, #fbfdfa 100%);
+}
 
-          .eye-l,
-          .eye-r {
-            height: 0.68em;
-            width: 1.37em;
-            background-color: #ffffff;
-            border-radius: 1.37em 1.37em 0 0;
-            border: 0.12em solid #140243;
-            position: absolute;
-            top: 2.1em;
-          }
+.panel {
+  width: 60px;
+  height: 40px;
+  position: absolute;
+  top: 20px;
+  left: calc(50% - 30px);
+  background-color: #b7cceb;
+}
 
-          .eye-l {
-            left: 0.3em;
-          }
+.panel:before {
+  content: "";
+  width: 30px;
+  height: 5px;
+  position: absolute;
+  top: 9px;
+  left: 7px;
+  background-color: #fbfdfa;
+  box-shadow: 0px 9px 0px #fbfdfa, 0px 18px 0px #fbfdfa;
+}
 
-          .eye-r {
-            right: 0.3em;
-          }
+.panel:after {
+  content: "";
+  width: 8px;
+  height: 8px;
+  position: absolute;
+  top: 9px;
+  right: 7px;
+  background-color: #fbfdfa;
+  border-radius: 50%;
+  box-shadow: 0px 14px 0px 2px #fbfdfa;
+}
 
-          .cover {
-            height: 3.12em;
-            width: 0.15em;
-            background-color: #ffffff;
-            bottom: 8.12em;
-          }
+.arm {
+  width: 80px;
+  height: 30px;
+  position: absolute;
+  top: 121px;
+  z-index: 2;
+}
 
-          @media screen and (min-width: 600px) {
-            .container {
-              font-size: 20px;
-            }
-          }
+.arm-left {
+  left: 30px;
+  background-color: #e3e8eb;
+  border-radius: 0 0 0 39px;
+}
+
+.arm-right {
+  right: 30px;
+  background-color: #fbfdfa;
+  border-radius: 0 0 39px 0;
+}
+
+.arm-left:before,
+.arm-right:before {
+  content: "";
+  width: 30px;
+  height: 70px;
+  position: absolute;
+  top: -40px;
+}
+
+.arm-left:before {
+  border-radius: 50px 50px 0px 120px / 50px 50px 0 110px;
+  left: 0;
+  background-color: #e3e8eb;
+}
+
+.arm-right:before {
+  border-radius: 50px 50px 120px 0 / 50px 50px 110px 0;
+  right: 0;
+  background-color: #fbfdfa;
+}
+
+.arm-left:after,
+.arm-right:after {
+  content: "";
+  width: 30px;
+  height: 10px;
+  position: absolute;
+  top: -24px;
+}
+
+.arm-left:after {
+  background-color: #6e91a4;
+  left: 0;
+}
+
+.arm-right:after {
+  right: 0;
+  background-color: #b6d2e0;
+}
+
+.leg {
+  width: 30px;
+  height: 40px;
+  position: absolute;
+  z-index: 2;
+  bottom: 70px;
+}
+
+.leg-left {
+  left: 76px;
+  background-color: #e3e8eb;
+  transform: rotate(20deg);
+}
+
+.leg-right {
+  right: 73px;
+  background-color: #fbfdfa;
+  transform: rotate(-20deg);
+}
+
+.leg-left:before,
+.leg-right:before {
+  content: "";
+  width: 50px;
+  height: 25px;
+  position: absolute;
+  bottom: -26px;
+}
+
+.leg-left:before {
+  left: -20px;
+  background-color: #e3e8eb;
+  border-radius: 30px 0 0 0;
+  border-bottom: 10px solid #6d96ac;
+}
+
+.leg-right:before {
+  right: -20px;
+  background-color: #fbfdfa;
+  border-radius: 0 30px 0 0;
+  border-bottom: 10px solid #b0cfe4;
+}
         `}</style>
       </>
     );
