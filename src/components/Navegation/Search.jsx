@@ -79,36 +79,6 @@ export const SearchMob = () => {
               </svg>
             </button>
           </div>
-
-          {searchTerm && (
-            <>
-              {loading ? (
-                <div className="p-4 text-gray-500 dark:text-gray-400">Cargando...</div>
-              ) : (
-                filteredComics.length > 0 ? (
-                  <div className="p-4 grid grid-cols-1 gap-2">
-                    {filteredComics.map((comic) => (
-                      <div
-                        className="flex items-center bg-white dark:bg-gray-700 border border-gray-300 dark:border-gray-600 rounded-lg shadow-sm hover:shadow-md transition-shadow duration-200 ease-in-out cursor-pointer"
-                        onClick={() => handleComicClick(comic._id)}
-                      >
-                        <img
-                          src={comic.imageUrl || '/placeholder.png'}
-                          alt={comic.title}
-                          className="w-12 h-12 object-cover rounded-l-lg"
-                        />
-                        <div className="p-2 truncate">
-                          <h3 className="text-xs font-semibold text-gray-800 dark:text-gray-200">{comic.title}</h3>
-                        </div>
-                      </div>
-                    ))}
-                  </div>
-                ) : (
-                  <div className="p-4 text-gray-500 dark:text-gray-400">No se encontraron resultados</div>
-                )
-              )}
-            </>
-          )}
         </div>
       )}
     </div>
