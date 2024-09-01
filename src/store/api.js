@@ -6,7 +6,7 @@ function useFetchComics() {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    fetch('http://localhost:5000/api/comics')
+    fetch('https://cavernaserver-production.up.railway.app/api/comics')
       .then(response => response.json())
       .then(data => {
         setComics(data);

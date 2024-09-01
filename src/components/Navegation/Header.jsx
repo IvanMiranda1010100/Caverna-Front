@@ -26,7 +26,7 @@ const HeaderComponent = () => {
   }, []);
 
   return (
-    <header className="bg-gradient-to-r from-red-600 to-red-800 py-4 px-6">
+    <header className="bg-gradient-to-r from-red-600 to-red-800 py-4 sm:px-6">
       <div className="container mx-auto flex items-center justify-between px-5 lg:px-36 xl:px-52">
         {/* Logo y Enlaces de Navegación */}
         <div className="flex items-center space-x-8">

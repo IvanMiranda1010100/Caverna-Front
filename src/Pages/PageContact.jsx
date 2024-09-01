@@ -1,4 +1,3 @@
-// PageContactMail.jsx
 import React, { useState } from "react";
 import HeaderComponent from "@Components/Navegation/Header";
 import { FooterComponent } from "@Components/Footer";
@@ -13,6 +12,7 @@ export const PageContactMail = () => {
 
   const [responseMessage, setResponseMessage] = useState("");
   const [loading, setLoading] = useState(false);
+  const [isSuccess, setIsSuccess] = useState(false);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -26,21 +26,23 @@ export const PageContactMail = () => {
     e.preventDefault();
     if (!formData.email || !formData.nombre || !formData.comentarios) {
       setResponseMessage("Por favor, complete todos los campos");
+      setIsSuccess(false);
       return;
     }
-
+  
     setLoading(true);
     try {
-      const response = await fetch("http://localhost:5000/api/send-email", {
+      const response = await fetch("https://cavernaserver-production.up.railway.app/api/send-email", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(formData),
       });
-
+  
       const result = await response.json();
-
+  
       if (response.ok) {
         setResponseMessage("Correo enviado con éxito");
+        setIsSuccess(true);
         setFormData({
           email: "",
           nombre: "",
@@ -48,14 +50,17 @@ export const PageContactMail = () => {
         });
       } else {
         setResponseMessage(result.message || "Error al enviar el correo");
+        setIsSuccess(false);
       }
     } catch (error) {
       console.error("Error al enviar la solicitud:", error);
       setResponseMessage("Error al enviar el correo");
+      setIsSuccess(false);
     } finally {
       setLoading(false);
     }
   };
+  
 
   return (
     <>
@@ -132,9 +137,9 @@ export const PageContactMail = () => {
 
           {responseMessage && (
             <div
-              className={`fixed z-[999] transition-all top-4 right-4 p-4 ${
-                responseMessage ? "bg-green-600" : "bg-red-500"
-              } text-white rounded-lg shadow-lg`}
+            className={`fixed z-[999] transition-all top-4 right-4 p-4 ${
+              isSuccess ? "bg-green-600" : "bg-red-500"
+            } text-white rounded-lg shadow-lg`}
             >
               <div className="flex items-center">
                 <svg
@@ -146,15 +151,15 @@ export const PageContactMail = () => {
                   className="w-6 h-6 mr-2"
                 >
                   <path
-                    fill-rule="evenodd"
+                    fillRule="evenodd"
                     fill="#fff"
                     d="m12 1c-6.075 0-11 4.925-11 11s4.925 11 11 11 11-4.925 11-11-4.925-11-11-11zm4.768 9.14c.0878-.1004.1546-.21726.1966-.34383.0419-.12657.0581-.26026.0477-.39319-.0105-.13293-.0475-.26242-.1087-.38085-.0613-.11844-.1456-.22342-.2481-.30879-.1024-.08536-.2209-.14938-.3484-.18828s-.2616-.0519-.3942-.03823c-.1327.01366-.2612.05372-.3782.1178-.1169.06409-.2198.15091-.3027.25537l-4.3 5.159-2.225-2.226c-.1886-.1822-.4412-.283-.7034-.2807s-.51301.1075-.69842.2929-.29058.4362-.29285.6984c-.00228.2622.09851.5148.28067.7034l3 3c.0983.0982.2159.1748.3454.2251.1295.0502.2681.0729.4069.0665.1387-.0063.2747-.0414.3991-.1032.1244-.0617.2347-.1487.3236-.2554z"
-                    clip-rule="evenodd"
+                    clipRule="evenodd"
                   ></path>
                 </svg>
                 <span>{responseMessage}</span>
                 <button
-                  onClick={() => setResponseMessage(false)}
+                  onClick={() => setResponseMessage("")}
                   className="ml-4 text-white hover:text-gray-200"
                 >
                   <svg

@@ -12,10 +12,11 @@ declare module '*.jsx' {
   export const PageByIdComic: FC<any>; // Agrega aquí las exportaciones con nombre si las necesitas
   export const PageComic: FC<any>; // Agrega aquí las exportaciones con nombre si las necesitas
   export const PageFavorites: FC<any>; // Agrega aquí las exportaciones con nombre si las necesitas
-  export const DashboardBody: FC<any>; // Agrega aquí las exportaciones con nombre si las necesitas
-  export const ProductWeb: FC<any>; // Agrega aquí las exportaciones con nombre si las necesitas
+  export const PageCategories: FC<any>; // Agrega aquí las exportaciones con nombre si las necesitas
+  export const PageResults: FC<any>; // Agrega aquí las exportaciones con nombre si las necesitas
   export const SearchResultPage: FC<any>; // Agrega aquí las exportaciones con nombre si las necesitas
   export const PageInitial: React.ComponentType<any>; // Agrega aquí las exportaciones con nombre si las necesitas
+  export const FavoritesProvider: React.ComponentType<any>; // Agrega aquí las exportaciones con nombre si las necesitas
 }
 
 // src/declarations.d.ts

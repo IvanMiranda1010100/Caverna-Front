@@ -39,7 +39,10 @@ export const PageWelcomeMain = () => {
   return (
     <>
     <main className="py-4 px-5">
-      <h1 className="font-bold text-3xl mb-4">Pagina Inicial</h1>
+      <header className='mb-4'>
+      <h1 className="font-bold text-2xl md:text-3xl">Bienvenidos a <span className='text-red-500'>Caverna</span></h1>
+      <p className='text-[17px] sm:text-[20px]'>Una Página <span className='text-green-600 font-semi-bold'>gratuita</span> de lectura de Cómics, Mangas, etc.</p>
+      </header>
       <AdvancedFilters onFilterChange={handleFilterChange} resultsCount={filteredComics.length}/>
       <ThemeToggleButton/>
       {/* Lista de cómics */}

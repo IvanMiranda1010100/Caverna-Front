@@ -14,7 +14,7 @@ export const PageComic = () => {
   useEffect(() => {
     const fetchComic = async () => {
       try {
-        const response = await fetch(`http://localhost:5000/api/comics/${id}/${encodeURIComponent(title)}`);
+        const response = await fetch(`https://cavernaserver-production.up.railway.app/api/comics/${id}/${encodeURIComponent(title)}`);
         const data = await response.json();
         setComic(data);
       } catch (error) {
@@ -64,7 +64,7 @@ export const PageComic = () => {
                   <span className="font-bold">Autores</span>: {comic.authors}
                 </p>
                 <p className="text-gray-600 mb-2">
-                  <span className="font-bold">Artistas</span>: {comic.artists}
+                  <span className="font-bold">Artistas</span>: {comic.artists.join(', ')}
                 </p>
                 <p className="text-gray-600 mb-2">
                   <span className="font-bold">Género(s)</span>: {comic.genres}

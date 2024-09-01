@@ -47,7 +47,10 @@ export const PageFavorites = () => {
       <HeaderComponent />
       <ThemeToggleButton />
       <main className='py-4 px-5'>
-        <h1 className='font-bold text-3xl mb-2 text-center'>Tus Favoritos</h1>
+      <h1 className="relative font-bold text-3xl mb-1 text-center text-gray-800 dark:text-gray-100 underline underline-offset-4 decoration-blue-500 hover:decoration-blue-800 transition-colors duration-300">
+  Tus Favoritos
+</h1>
+
 
         {/* Pasar la cantidad de favoritos a los filtros */}
         <AdvancedFilters onFilterChange={handleFilterChange} resultsCount={filteredFavorites.length} />

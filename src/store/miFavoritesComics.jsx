@@ -1,4 +1,3 @@
-// src/context/FavoritesContext.js
 import React, { createContext, useContext, useState, useEffect } from 'react';
 
 const FavoritesContext = createContext();
@@ -19,11 +18,14 @@ export const FavoritesProvider = ({ children }) => {
 
   const toggleFavorite = (comic) => {
     setFavorites(prevFavorites => {
-      const isFavorite = prevFavorites.some(fav => fav._id === comic._id);
+      // Verifica si el cómic ya está en favoritos
+      const index = prevFavorites.findIndex(fav => fav._id === comic._id);
 
-      if (isFavorite) {
+      if (index > -1) {
+        // El cómic está en favoritos, lo eliminamos
         return prevFavorites.filter(fav => fav._id !== comic._id);
       } else {
+        // El cómic no está en favoritos, lo añadimos
         return [...prevFavorites, comic];
       }
     });

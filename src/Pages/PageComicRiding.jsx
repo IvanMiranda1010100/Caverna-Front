@@ -59,7 +59,7 @@ export const PageByIdComic = () => {
     // Función para obtener los detalles del cómic
     const fetchComic = async () => {
       try {
-        const response = await fetch(`http://localhost:5000/api/comics/${id}`);
+        const response = await fetch(`https://cavernaserver-production.up.railway.app/api/comics/${id}`);
         const data = await response.json();
         setComic(data);
       } catch (error) {

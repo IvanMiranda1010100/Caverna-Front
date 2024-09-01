@@ -25,4 +25,7 @@ export default defineConfig({
       '@dashboard': '/src/dashboard',
     },
   },
+  build: {
+    outDir: 'dist',  // Asegúrate de que los archivos de salida estén en 'dist'
+  },
 })
