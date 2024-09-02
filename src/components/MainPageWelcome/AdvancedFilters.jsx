@@ -7,36 +7,38 @@ const AdvancedFilters = ({ onFilterChange, resultsCount }) => {
 
   return (
     <>
-      <main className="filters-container flex flex-col sm:flex-row sm:justify-between items-center mb-4">
+      <main className="filters-container flex flex-col items-center gap-2 sm:flex-row sm:justify-between mb-4">
         {/* Cantidad de resultados */}
-        <div className='results-count text-lg sm:text-2xl font-medium'>
+        <div className='results-count text-lg sm:text-2xl font-medium mb-2 sm:mb-0'>
           {resultsCount} resultados
         </div>
 
         {/* Barra de filtros */}
-        <div className="filters-bar flex flex-wrap items-center justify-end gap-2 text-sm sm:text-base mt-2 sm:mt-0">
-          <span className="font-bold opacity-55">Ordenar por:</span>
+        <div className="filters-bar flex flex-col sm:flex-row items-center gap-2">
+          <span className="font-bold opacity-55 mb-1 sm:mb-0">Ordenar por:</span>
           
-          <button
-            className="filter-button"
-            onClick={() => handleFilterClick('sort', 'mostRecent')}
-          >
-            Más reciente
-          </button>
+          <div className="flex flex-wrap justify-center sm:justify-end gap-2">
+            <button
+              className="filter-button"
+              onClick={() => handleFilterClick('sort', 'mostRecent')}
+            >
+              Más reciente
+            </button>
 
-          <button
-            className="filter-button"
-            onClick={() => handleFilterClick('sort', 'mostOld')}
-          >
-            Más viejo
-          </button>
-          
-          <button
-            className="filter-button"
-            onClick={() => handleFilterClick('sort', 'az')}
-          >
-            A-Z
-          </button>
+            <button
+              className="filter-button"
+              onClick={() => handleFilterClick('sort', 'mostOld')}
+            >
+              Más viejo
+            </button>
+            
+            <button
+              className="filter-button"
+              onClick={() => handleFilterClick('sort', 'az')}
+            >
+              A-Z
+            </button>
+          </div>
         </div>
       </main>
 
@@ -62,8 +64,15 @@ const AdvancedFilters = ({ onFilterChange, resultsCount }) => {
 
         .filters-bar {
           display: flex;
-          flex-wrap: wrap;
+          flex-direction: column;
+          align-items: center;
           gap: 0.5rem; /* Espacio entre los botones */
+        }
+
+        @media (min-width: 640px) {
+          .filters-bar {
+            flex-direction: row;
+          }
         }
 
         .filter-button {
@@ -73,7 +82,7 @@ const AdvancedFilters = ({ onFilterChange, resultsCount }) => {
           padding: 0.25rem 0.5rem;
           font-size: 0.875rem;
           transition: color 0.3s;
-          opacity:.600;
+          opacity: 0.6;
         }
 
         .filter-button:hover {

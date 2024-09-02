@@ -25,6 +25,13 @@ const HeaderComponent = () => {
     };
   }, []);
 
+  // Función para cerrar el menú
+  const closeMenu = () => {
+    setMenuOpen(false);
+    setCategoriesOpen(false);
+    setAccountOpen(false);
+  };
+
   return (
     <header className="bg-gradient-to-r from-red-600 to-red-800 py-4 sm:px-6">
       <div className="container mx-auto flex items-center justify-between px-5 lg:px-36 xl:px-52">
@@ -36,7 +43,7 @@ const HeaderComponent = () => {
           </div>
 
           <nav className="hidden md:flex space-x-8 items-center">
-            <Link to="/" className="relative text-white font-medium group">
+            <Link to="/" className="relative text-white font-medium group" onClick={closeMenu}>
               Inicio
               <span className="absolute left-0 bottom-0 block w-0 h-0.5 bg-gray-400 transition-all duration-300 group-hover:w-full"></span>
             </Link>
@@ -55,24 +62,24 @@ const HeaderComponent = () => {
               </button>
               {categoriesOpen && (
                 <div className="absolute mt-2 z-[400] w-[100px] bg-red-800 rounded-md shadow-lg">
-                  <Link to="/DC Comics" className="block px-4 py-2 ">
+                  <Link to="/DC Comics" className="block px-4 py-2 " onClick={closeMenu}>
                     DC
                   </Link>
-                  <Link to="/Marvel Comics" className="block px-4 py-2 ">
+                  <Link to="/Marvel Comics" className="block px-4 py-2 " onClick={closeMenu}>
                     Marvel
                   </Link>
-                  <Link to="/Mangas" className="block px-4 py-2 ">
+                  <Link to="/Mangas" className="block px-4 py-2 " onClick={closeMenu}>
                     Mangas
                   </Link>
                 </div>
               )}
             </div>
 
-            <Link to="/MyFavorites" className="relative text-white font-medium group">
+            <Link to="/MyFavorites" className="relative text-white font-medium group" onClick={closeMenu}>
               Favoritos
               <span className="absolute left-0 bottom-0 block w-0 h-0.5 bg-gray-400 transition-all duration-300 group-hover:w-full"></span>
             </Link>
-            <Link to="/pedidos" className="relative text-white font-medium group">
+            <Link to="/pedidos" className="relative text-white font-medium group" onClick={closeMenu}>
               Pedidos
               <span className="absolute left-0 bottom-0 block w-0 h-0.5 bg-gray-400 transition-all duration-300 group-hover:w-full"></span>
             </Link>
@@ -92,15 +99,15 @@ const HeaderComponent = () => {
               {accountOpen && (
                 <div className="absolute mt-2 w-[130px] z-[400] bg-red-800 rounded-md shadow-lg">
                   {isSignedIn ? (
-                    <SignOutButton className="block px-4 py-2 ">
+                    <SignOutButton className="block px-4 py-2 " onClick={closeMenu}>
                       Cerrar sesión
                     </SignOutButton>
                   ) : (
                     <>
-                      <Link to="/sign-in" className="block px-4 py-2 ">
+                      <Link to="/sign-in" className="block px-4 py-2 " onClick={closeMenu}>
                         Iniciar sesión
                       </Link>
-                      <Link to="/sign-up" className="block px-4 py-2 ">
+                      <Link to="/sign-up" className="block px-4 py-2 " onClick={closeMenu}>
                         Crear cuenta
                       </Link>
                     </>
@@ -148,7 +155,7 @@ const HeaderComponent = () => {
         <div className="p-4 space-y-4">
           <div className="flex justify-end">
             <button
-              onClick={() => setMenuOpen(false)}
+              onClick={closeMenu}
               className="text-white focus:outline-none"
             >
               <svg
@@ -169,7 +176,7 @@ const HeaderComponent = () => {
             </button>
           </div>
           <nav className="space-y-4">
-            <Link to="/" className="text-white font-medium block">
+            <Link to="/" className="text-white font-medium block" onClick={closeMenu}>
               Inicio
             </Link>
             <div className="relative">
@@ -184,23 +191,24 @@ const HeaderComponent = () => {
                 </svg>
               </button>
               {categoriesOpen && (
-                <div className="mt-2 rounded-md shadow-lg">
-                  <Link to="/DC Comics" className="block px-4 py-2 ">
+                <div className=" rounded-md shadow-lg">
+                  <Link to="/DC Comics" className="block px-4 py-2 " onClick={closeMenu}>
                     DC
                   </Link>
-                  <Link to="/Marvel Comics" className="block px-4 py-2 ">
+                  <Link to="/Marvel Comics" className="block px-4 py-2 " onClick={closeMenu}>
                     Marvel
                   </Link>
-                  <Link to="/Mangas" className="block px-4 py-2 ">
+                  <Link to="/Mangas" className="block px-4 py-2 " onClick={closeMenu}>
                     Mangas
                   </Link>
                 </div>
               )}
             </div>
-            <Link to="/MyFavorites" className="text-white font-medium block">
+
+            <Link to="/MyFavorites" className="text-white font-medium block" onClick={closeMenu}>
               Favoritos
             </Link>
-            <Link to="/pedidos" className="text-white font-medium block">
+            <Link to="/pedidos" className="text-white font-medium block" onClick={closeMenu}>
               Pedidos
             </Link>
             <div className="relative">
@@ -215,17 +223,17 @@ const HeaderComponent = () => {
                 </svg>
               </button>
               {accountOpen && (
-                <div className="mt-2 rounded-md shadow-lg">
+                <div className=" rounded-md shadow-lg">
                   {isSignedIn ? (
-                    <SignOutButton className="block px-4 py-2 ">
+                    <SignOutButton className="block px-4 py-2 " onClick={closeMenu}>
                       Cerrar sesión
                     </SignOutButton>
                   ) : (
                     <>
-                      <Link to="/sign-in" className="block px-4 py-2 ">
+                      <Link to="/sign-in" className="block px-4 py-2 " onClick={closeMenu}>
                         Iniciar sesión
                       </Link>
-                      <Link to="/sign-up" className="block px-4 py-2 ">
+                      <Link to="/sign-up" className="block px-4 py-2 " onClick={closeMenu}>
                         Crear cuenta
                       </Link>
                     </>
