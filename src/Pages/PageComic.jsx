@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
-import HeaderComponent from '@Components/Navegation/Header';
+import {HeaderComponent} from '@Components/Navegation/Header';
 import { FooterComponent } from '@Components/Footer';
 import ThemeToggleButton from '@Components/Light-Dark/Theme';
 import { useFavorites } from '@store/miFavoritesComics';

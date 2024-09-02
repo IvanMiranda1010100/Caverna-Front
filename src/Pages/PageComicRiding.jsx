@@ -1,7 +1,7 @@
 // src/components/PageByIdComic.js
 import React, { useState, useEffect } from "react";
 import { useParams, Link } from "react-router-dom";
-import HeaderComponent from "@Components/Navegation/Header";
+import {HeaderComponent} from "@Components/Navegation/Header";
 import { FooterComponent } from "@Components/Footer";
 import ThemeToggleButton from "@Components/Light-Dark/Theme";
 import { ArrowTopComic } from "../components/ArrowUpToRidingComic";

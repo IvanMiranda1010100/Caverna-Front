@@ -4,7 +4,7 @@ import { useAuth } from "@clerk/clerk-react";
 import { SignOutButton } from "@clerk/clerk-react";
 import { SearchMob } from "./Search";
 
-const HeaderComponent = () => {
+export const HeaderComponent = () => {
   const [menuOpen, setMenuOpen] = useState(false);
   const [categoriesOpen, setCategoriesOpen] = useState(false);
   const [accountOpen, setAccountOpen] = useState(false);
@@ -248,4 +248,3 @@ const HeaderComponent = () => {
   );
 };
 
-export default HeaderComponent;

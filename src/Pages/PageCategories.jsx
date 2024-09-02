@@ -3,7 +3,7 @@ import { useParams } from 'react-router-dom';
 import useFetchComics from '@store/api';
 import ComicListt from '@Components/ComicList';
 import ThemeToggleButton from '@Components/Light-Dark/Theme';
-import HeaderComponent from '@Components/Navegation/Header';
+import {HeaderComponent} from '@Components/Navegation/Header';
 import { FooterComponent } from '@Components/Footer';
 import AdvancedFilters from '@Components/MainPageWelcome/AdvancedFilters'; // Importamos el componente de filtros
 

@@ -1,6 +1,6 @@
 import React , {useState} from 'react';
 import { useFavorites } from '@store/miFavoritesComics';
-import HeaderComponent from '@Components/Navegation/Header';
+import {HeaderComponent} from '@Components/Navegation/Header';
 import ThemeToggleButton from '@Components/Light-Dark/Theme';
 import ComicListt from '@Components/ComicList';
 import { FooterComponent } from '@Components/Footer';

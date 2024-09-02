@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import HeaderComponent from "@Components/Navegation/Header";
+import {HeaderComponent} from "@Components/Navegation/Header";
 import { FooterComponent } from "@Components/Footer";
 import ThemeToggleButton from "@Components/Light-Dark/Theme";
 

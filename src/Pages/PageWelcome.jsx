@@ -1,4 +1,4 @@
-import  HeaderComponent  from "@Components/Navegation/Header"
+import { HeaderComponent } from "@Components/Navegation/Header"
 import { FooterComponent } from "@Components/Footer"
 import { PageWelcomeMain } from "@Components/MainPageWelcome/WelcomeMain";
 
