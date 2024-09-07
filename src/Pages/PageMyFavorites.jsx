@@ -1,6 +1,7 @@
 import React , {useState} from 'react';
 import { useFavorites } from '@store/miFavoritesComics';
 import {HeaderComponent} from '@Components/Navegation/Header';
+import {ArrowTopComic} from '@Components/ArrowUpToRidingComic'
 import ThemeToggleButton from '@Components/Light-Dark/Theme';
 import ComicListt from '@Components/ComicList';
 import { FooterComponent } from '@Components/Footer';
@@ -36,6 +37,7 @@ export const PageFavorites = () => {
         <main className='h-[600px] lg:h-[400px] flex justify-center items-center'>
           <h1 className='text-3xl'>No tienes comics en favoritos</h1>
         </main>
+        <ArrowTopComic />
         <ThemeToggleButton />
         <FooterComponent />
       </>

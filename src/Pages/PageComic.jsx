@@ -67,7 +67,7 @@ export const PageComic = () => {
                   <span className="font-bold">Artistas</span>: {comic.artists.join(', ')}
                 </p>
                 <p className="text-gray-600 mb-2">
-                  <span className="font-bold">Género(s)</span>: {comic.genres}
+                  <span className="font-bold">Género(s)</span>: {comic.genres.join(', ')}
                 </p>
                 <p className="text-gray-600 mb-2">
                   <span className="font-bold">Tipo</span>: {comic.type}

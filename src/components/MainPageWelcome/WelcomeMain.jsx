@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import ThemeToggleButton from '@Components/Light-Dark/Theme';
 import ComicListt from '../ComicList.jsx';
 import AdvancedFilters from './AdvancedFilters.jsx';
+import {ArrowTopComic} from '@Components/ArrowUpToRidingComic'
 import useFetchComics from '@store/api';
 
 export const PageWelcomeMain = () => {
@@ -44,6 +45,7 @@ export const PageWelcomeMain = () => {
       <p className='text-[17px] sm:text-[20px]'>Una Página <span className='text-green-600 font-semi-bold'>gratuita</span> de lectura de Cómics, Mangas, etc.</p>
       </header>
       <AdvancedFilters onFilterChange={handleFilterChange} resultsCount={filteredComics.length}/>
+      <ArrowTopComic/>
       <ThemeToggleButton/>
       {/* Lista de cómics */}
       <ComicListt comics={filteredComics} />

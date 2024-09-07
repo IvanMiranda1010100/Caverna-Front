@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import useFetchComics from '@store/api';
+import {ArrowTopComic} from '@Components/ArrowUpToRidingComic'
 import ComicListt from '@Components/ComicList';
 import ThemeToggleButton from '@Components/Light-Dark/Theme';
 import {HeaderComponent} from '@Components/Navegation/Header';
@@ -50,6 +51,7 @@ export const PageCategories = () => {
       <HeaderComponent />
       <main className='sm:px-6 px-3 py-4'>
         <ThemeToggleButton />
+        <ArrowTopComic/>
         <h2 className='lg:text-3xl mb-3 sm:text-2xl text-lg'>{categoria}</h2>
         
         {/* Pasar la cantidad de resultados a los filtros */}

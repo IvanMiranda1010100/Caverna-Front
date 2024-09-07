@@ -71,6 +71,9 @@ export const HeaderComponent = () => {
                   <Link to="/Mangas" className="block px-4 py-2 " onClick={closeMenu}>
                     Mangas
                   </Link>
+                  <Link to="/Libros" className="block px-4 py-2 " onClick={closeMenu}>
+                    Libros
+                  </Link>
                 </div>
               )}
             </div>
@@ -200,6 +203,9 @@ export const HeaderComponent = () => {
                   </Link>
                   <Link to="/Mangas" className="block px-4 py-2 " onClick={closeMenu}>
                     Mangas
+                  </Link>
+                  <Link to="/Libros" className="block px-4 py-2 " onClick={closeMenu}>
+                    Libros
                   </Link>
                 </div>
               )}
