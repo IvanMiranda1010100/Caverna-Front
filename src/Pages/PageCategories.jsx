@@ -5,6 +5,7 @@ import {ArrowTopComic} from '@Components/ArrowUpToRidingComic'
 import ComicListt from '@Components/ComicList';
 import ThemeToggleButton from '@Components/Light-Dark/Theme';
 import {HeaderComponent} from '@Components/Navegation/Header';
+import { SelectGenre } from '@Components/MainPageWelcome/GenresSelect.jsx';
 import { FooterComponent } from '@Components/Footer';
 import AdvancedFilters from '@Components/MainPageWelcome/AdvancedFilters'; // Importamos el componente de filtros
 
@@ -55,6 +56,7 @@ export const PageCategories = () => {
         <h2 className='lg:text-3xl mb-3 sm:text-2xl text-lg'>{categoria}</h2>
         
         {/* Pasar la cantidad de resultados a los filtros */}
+        <SelectGenre/>
         <AdvancedFilters onFilterChange={handleFilterChange} resultsCount={filteredComics.length} />
 
         {filteredComics.length > 0 ? (
