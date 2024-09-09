@@ -65,7 +65,7 @@ export const PageCategories = () => {
         {filteredComics.length > 0 ? (
           <ComicListt comics={filteredComics} />
         ) : (
-          <div>No hay cómics en esta categoría.</div>
+          <div className='h-[400px] flex items-center justify-center'><span className='text-[22px]'>No hay cómics en esta categoría.</span></div>
         )}
       </main>
       <FooterComponent />

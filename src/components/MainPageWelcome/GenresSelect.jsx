@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 import { Badge } from "../Badge";
 import useFetchComics from "@store/api";
 
@@ -33,8 +34,10 @@ export const SelectGenre = () => {
   useEffect(() => {
     if (!loading) {
       const counts = genres.reduce((acc, genre) => {
-        const count = comics.filter(comic =>
-          comic.genres.some(g => g.trim().toLowerCase() === genre.name.trim().toLowerCase())
+        const count = comics.filter((comic) =>
+          comic.genres.some(
+            (g) => g.trim().toLowerCase() === genre.name.trim().toLowerCase()
+          )
         ).length;
         acc[genre.name] = count;
         return acc;
@@ -82,7 +85,9 @@ export const SelectGenre = () => {
 
       {/* Menú de géneros */}
       <div
-        className={`w-full ${isOpen ? "block" : "hidden"} p-4 mb-[-30px] shadow-md`}
+        className={`w-full ${
+          isOpen ? "block" : "hidden"
+        } p-4 mb-[-30px] shadow-md`}
       >
         <div className="flex flex-wrap gap-4">
           {genres.map((genre, index) => (
@@ -99,12 +104,12 @@ export const SelectGenre = () => {
                   clipRule="evenodd"
                 />
               </svg>
-              <a
+              <Link
                 className="hover:text-white transition-all hover:text-opacity-60"
-                href={`/${genre.name}`}
+                to={`/${encodeURIComponent(genre.name)}`}
               >
                 {genre.name} ({genreCounts[genre.name] || 0})
-              </a>
+              </Link>
             </div>
           ))}
         </div>
