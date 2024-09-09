@@ -63,7 +63,7 @@ export const HeaderComponent = () => {
                 </svg>
               </button>
               {categoriesOpen && (
-                <div className="absolute mt-2 z-[400] w-[100px] bg-red-800 rounded-md shadow-lg">
+                <div className="absolute mt-2 z-[400] w-[100px] bg-red-800 transition-transform transform bg-gradient-to-r from-red-600 to-red-800 duration-700 ease-in-out dark:bg-gradient-to-bl dark:from-black dark:via-[#0A0A23] dark:to-[#1B1B3A] rounded-md shadow-lg">
                   <Link to="/DC Comics" className="block px-4 py-2 " onClick={closeMenu}>
                     DC
                   </Link>
@@ -102,7 +102,7 @@ export const HeaderComponent = () => {
                 </svg>
               </button>
               {accountOpen && (
-                <div className="absolute mt-2 w-[130px] z-[400] bg-red-800 rounded-md shadow-lg">
+                <div className="absolute mt-2 w-[130px] z-[400] bg-red-800 transition-transform transform bg-gradient-to-r from-red-600 to-red-800 duration-700 ease-in-out dark:bg-gradient-to-bl dark:from-black dark:via-[#0A0A23] dark:to-[#1B1B3A] rounded-md shadow-lg">
                   {isSignedIn ? (
                     <SignOutButton className="block px-4 py-2 " onClick={closeMenu}>
                       Cerrar sesión
