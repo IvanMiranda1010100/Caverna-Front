@@ -10,7 +10,7 @@ export const PageResults = () => {
   const { resultados } = useParams();
   const { comics, loading } = useFetchComics();
 
-  if (loading) return <p>Loading...</p>;
+  if (loading) return (<Loading/>);
 
   if (!comics || comics.length === 0) return <p>No se encontraron cómics</p>;
 

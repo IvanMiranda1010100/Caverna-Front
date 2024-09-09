@@ -33,7 +33,9 @@ export const HeaderComponent = () => {
   };
 
   return (
-    <header className="bg-gradient-to-r from-red-600 to-red-800 py-4 sm:px-6">
+    <>
+    <header className="bg-gradient-to-r from-red-600 to-red-800 py-4 sm:px-6 transition-all duration-700 ease-in-out dark:bg-gradient-to-bl dark:from-black dark:via-[#0A0A23] dark:to-[#1B1B3A]
+">
       <div className="container mx-auto flex items-center justify-between px-5 lg:px-36 xl:px-52">
         {/* Logo y Enlaces de Navegación */}
         <div className="flex items-center space-x-8">
@@ -151,7 +153,7 @@ export const HeaderComponent = () => {
 
       {/* Menú desplegable en móviles */}
       <div
-        className={`fixed inset-0 bg-red-800 transition-transform transform ${
+        className={`fixed inset-0 bg-red-800 transition-transform transform bg-gradient-to-r from-red-600 to-red-800 py-4 sm:px-6 duration-700 ease-in-out dark:bg-gradient-to-bl dark:from-black dark:via-[#0A0A23] dark:to-[#1B1B3A] ${
           menuOpen ? "translate-x-0" : "translate-x-full"
         } z-[1900]`}
       >
@@ -251,6 +253,12 @@ export const HeaderComponent = () => {
         </div>
       </div>
     </header>
+
+    <style>
+      {
+}
+    </style>
+    </>
   );
 };
 

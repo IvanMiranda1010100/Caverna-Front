@@ -3,6 +3,7 @@ import ThemeToggleButton from '@Components/Light-Dark/Theme';
 import ComicListt from '../ComicList.jsx';
 import AdvancedFilters from './AdvancedFilters.jsx';
 import {ArrowTopComic} from '@Components/ArrowUpToRidingComic'
+import { Loading } from '../Navegation/Loading.jsx';
 import { SelectGenre } from './GenresSelect.jsx';
 import useFetchComics from '@store/api';
 
@@ -35,7 +36,9 @@ export const PageWelcomeMain = () => {
   };
 
   if (loading) {
-    return <div>Cargando...</div>;
+    return (
+      <Loading/>
+    )
   }
 
   return (

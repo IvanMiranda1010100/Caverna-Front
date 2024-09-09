@@ -4,6 +4,7 @@ import {HeaderComponent} from '@Components/Navegation/Header';
 import { FooterComponent } from '@Components/Footer';
 import ThemeToggleButton from '@Components/Light-Dark/Theme';
 import { useFavorites } from '@store/miFavoritesComics';
+import { Loading } from '../components/Navegation/Loading';
 
 export const PageComic = () => {
   const { id, title } = useParams();
@@ -27,7 +28,7 @@ export const PageComic = () => {
     fetchComic();
   }, [id, title]);
 
-  if (loading) return <p>Loading...</p>; // Mostrar mensaje de carga
+  if (loading) return (<Loading/>)// Mostrar mensaje de carga
 
   if (!comic) return <p>Comic not found</p>; // Mostrar mensaje si el cómic no se encuentra
 

@@ -7,6 +7,7 @@ import ThemeToggleButton from '@Components/Light-Dark/Theme';
 import {HeaderComponent} from '@Components/Navegation/Header';
 import { SelectGenre } from '@Components/MainPageWelcome/GenresSelect.jsx';
 import { FooterComponent } from '@Components/Footer';
+import { Loading } from '../components/Navegation/Loading';
 import AdvancedFilters from '@Components/MainPageWelcome/AdvancedFilters'; // Importamos el componente de filtros
 
 export const PageCategories = () => {
@@ -44,7 +45,9 @@ export const PageCategories = () => {
   };
 
   if (loading) {
-    return <div>Cargando...</div>;
+    return (
+    <Loading/>
+    )
   }
 
   return (

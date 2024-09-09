@@ -5,6 +5,7 @@ import {HeaderComponent} from "@Components/Navegation/Header";
 import { FooterComponent } from "@Components/Footer";
 import ThemeToggleButton from "@Components/Light-Dark/Theme";
 import { ArrowTopComic } from "../components/ArrowUpToRidingComic";
+import { Loading } from "../components/Navegation/Loading";
 
 export const PageByIdComic = () => {
   const { id } = useParams(); // Obtén el ID del cómic desde la URL
@@ -72,7 +73,7 @@ export const PageByIdComic = () => {
     fetchComic();
   }, [id]); // Ejecutar cuando el ID cambia
 
-  if (loading) return <p>Loading...</p>; // Mostrar mensaje de carga
+  if (loading) return (<Loading/>) // Mostrar mensaje de carga
 
   if (!comic) return <p>Comic not found</p>; // Mostrar mensaje si el cómic no se encuentra
 
